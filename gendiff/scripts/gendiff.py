@@ -1,14 +1,8 @@
 #! usr/bin/env python3
-import argparse
-
-parser = argparse.ArgumentParser()
-
-parser.add_argument('first_file')
-parser.add_argument('second_file')
-
+from gendiff.cli import run
 
 def main():
-    parser.parse_args()
+    run()
 
 
 if __name__ == '__main__':
