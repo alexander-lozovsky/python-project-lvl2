@@ -4,6 +4,9 @@ install:
 gendiff-help:
 	poetry run gendiff --help
 
+gendiff:
+	poetry run gendiff ./__fixtures__/file1.json ./__fixtures__/file2.json
+
 build:
 	poetry build
 
