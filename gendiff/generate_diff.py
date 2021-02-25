@@ -6,6 +6,11 @@ def take_first(x):
     return x[0]
 
 
+def get_formatted_line(pair, sign=" "):
+    (key, value) = pair
+    return f'{sign} {key}: {json.dumps(value)}'
+
+
 def generate_diff(file_path1, file_path2):
     file1 = json.load(open(file_path1))
     file2 = json.load(open(file_path2))
@@ -21,13 +26,15 @@ def generate_diff(file_path1, file_path2):
                 file2_node = (key2, value2)
                 file2.pop(index)
                 break
-        if file2_node is None:
-            result.append(f'  - {file1_node[0]}: {file1_node[1]}')
-        elif file1_node == file2_node:
-            result.append(f'    {file1_node[0]}: {file1_node[1]}')
-        else:
-            result.append(f'  - {file1_node[0]}: {file1_node[1]}')
-            result.append(f'  + {file2_node[0]}: {file2_node[1]}')
-    result.extend(map(lambda item: f'  + {item[0]}: {item[1]}', file2))
 
-    return '\n '.join(['{', *result, '}'])
+        if file2_node is None:
+            result.append(get_formatted_line(file1_node, '-'))
+        elif file1_node == file2_node:
+            result.append(get_formatted_line(file1_node))
+        else:
+            result.append(get_formatted_line(file1_node, '-'))
+            result.append(get_formatted_line(file2_node, '+'))
+
+    result.extend(map(lambda item: get_formatted_line(item, '+'), file2))
+
+    return '\n  '.join(['{', *result]) + '\n}'

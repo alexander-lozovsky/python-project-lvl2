@@ -5,7 +5,7 @@ gendiff-help:
 	poetry run gendiff --help
 
 gendiff:
-	poetry run gendiff ./__fixtures__/file1.json ./__fixtures__/file2.json
+	poetry run gendiff ./tests/__fixtures__/file1.json ./tests/__fixtures__/file2.json
 
 build:
 	poetry build
@@ -16,7 +16,10 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl
 
+test:
+	poetry run pytest --cov=gendiff tests/
+
 lint:
 	poetry run flake8 gendiff
 
-.PHONY: gendiff
+.PHONY: gendiff test
