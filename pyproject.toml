@@ -16,6 +16,7 @@ wemake-python-styleguide = "^0.15.1"
 autopep8 = "^1.5.5"
 pytest = "^6.2.2"
 pytest-cov = "^2.11.1"
+pytest-watch = "^4.2.0"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"

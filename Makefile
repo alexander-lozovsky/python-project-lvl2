@@ -19,6 +19,9 @@ package-install:
 test:
 	poetry run pytest --cov=gendiff tests/
 
+test-watch:
+	poetry run ptw
+
 lint:
 	poetry run flake8 gendiff
 
