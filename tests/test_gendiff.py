@@ -1,21 +1,51 @@
 from gendiff.generate_diff import generate_diff
 
 
-def test_json():
-    res = generate_diff(
-        './tests/__fixtures__/file1.json',
-        './tests/__fixtures__/file2.json',
-    )
-    expected = open('./tests/__fixtures__/expected.txt', 'r').read()
+class TestDefaultFormat:
+    def test_json_default(self):
+        res = generate_diff(
+            './tests/__fixtures__/file1.json',
+            './tests/__fixtures__/file2.json',
+        )
+        expected = open(
+            './tests/__fixtures__/expected_default_format.txt', 'r',
+        ).read()
 
-    assert res == expected
+        assert res == expected
+
+    def test_yaml_default(self):
+        res = generate_diff(
+            './tests/__fixtures__/file1.yaml',
+            './tests/__fixtures__/file2.yaml',
+        )
+        expected = open(
+            './tests/__fixtures__/expected_default_format.txt', 'r',
+        ).read()
+
+        assert res == expected
 
 
-def test_yaml():
-    res = generate_diff(
-        './tests/__fixtures__/file1.yaml',
-        './tests/__fixtures__/file2.yaml',
-    )
-    expected = open('./tests/__fixtures__/expected.txt', 'r').read()
+class TestPlainFormat:
+    def test_json_plain(self):
+        res = generate_diff(
+            './tests/__fixtures__/file1.json',
+            './tests/__fixtures__/file2.json',
+            format_type='plain',
+        )
+        expected = open(
+            './tests/__fixtures__/expected_plain_format.txt', 'r',
+        ).read()
 
-    assert res == expected
+        assert res == expected
+
+    def test_yaml_default(self):
+        res = generate_diff(
+            './tests/__fixtures__/file1.yaml',
+            './tests/__fixtures__/file2.yaml',
+            format_type='plain',
+        )
+        expected = open(
+            './tests/__fixtures__/expected_plain_format.txt', 'r',
+        ).read()
+
+        assert res == expected

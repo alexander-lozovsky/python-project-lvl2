@@ -1,7 +1,7 @@
 from pathlib import PurePosixPath
 
 from gendiff.ast import get_ast
-from gendiff.formatter import format_ast
+from gendiff.format.formatter import format_ast
 from gendiff.loader import load_file
 
 

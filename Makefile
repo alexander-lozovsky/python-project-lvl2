@@ -5,7 +5,7 @@ gendiff-help:
 	poetry run gendiff --help
 
 gendiff:
-	poetry run gendiff ./tests/__fixtures__/file1.json ./tests/__fixtures__/file2.json
+	poetry run gendiff ./tests/__fixtures__/file1.json ./tests/__fixtures__/file2.json --format=$(F)
 
 build:
 	poetry build

@@ -57,16 +57,6 @@ def _build_default(ast, level=0):  # noqa: WPS212, WPS231
     return '\n'.join(map(inner, ast))
 
 
-def _to_default(ast):
+def format_to_default(ast):
     formatted = _build_default(ast)
     return f'{{\n{formatted}\n}}'
-
-
-formatters = {
-    'default': _to_default,
-}
-
-
-def format_ast(ast, format_type='default'):
-    formatter = formatters[format_type]
-    return formatter(ast)
