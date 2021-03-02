@@ -49,3 +49,29 @@ class TestPlainFormat:
         ).read()
 
         assert res == expected
+
+
+class TestJsonFormat:
+    def test_json_json(self):
+        res = generate_diff(
+            './tests/__fixtures__/file1.json',
+            './tests/__fixtures__/file2.json',
+            format_type='json',
+        )
+        expected = open(
+            './tests/__fixtures__/expected_json_format.json', 'r',
+        ).read()
+
+        assert res == expected
+
+    def test_yaml_json(self):
+        res = generate_diff(
+            './tests/__fixtures__/file1.yaml',
+            './tests/__fixtures__/file2.yaml',
+            format_type='json',
+        )
+        expected = open(
+            './tests/__fixtures__/expected_json_format.json', 'r',
+        ).read()
+
+        assert res == expected
