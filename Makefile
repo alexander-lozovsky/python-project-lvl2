@@ -17,7 +17,7 @@ package-install:
 	python3 -m pip install --user dist/*.whl
 
 test:
-	poetry run pytest --cov=gendiff tests/
+	poetry run pytest --cov=gendiff --cov-report xml tests/
 
 test-watch:
 	poetry run ptw
