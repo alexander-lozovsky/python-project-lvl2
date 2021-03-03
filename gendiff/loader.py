@@ -4,8 +4,8 @@ import yaml
 
 loaders = {
     '.json': json.load,
-    '.yaml': yaml.load,
-    '.yml': yaml.load,
+    '.yaml': yaml.safe_load,
+    '.yml': yaml.safe_load,
 }
 
 
