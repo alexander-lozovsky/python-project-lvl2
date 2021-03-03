@@ -21,7 +21,7 @@ jobs:
       - name: Run linter
         run: make lint
       - name: Run tests and collect coverage
-      - uses: paambaati/codeclimate-action@v2.2.4
+        uses: paambaati/codeclimate-action@v2.2.4
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
         with:
